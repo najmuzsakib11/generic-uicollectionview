@@ -32,4 +32,19 @@ class CustomCollectionViewSection {
     func getRowList() -> [CustomCollectionViewRow] {
         return rowList
     }
+    
+    func getRow(with rowID:Int) -> CustomCollectionViewRow? {
+        for row in rowList {
+            if row.rowID == rowID {
+                return row
+            }
+        }
+        return nil
+    }
+    
+    func updateAllCellSize(with size:CGSize) {
+        for row in rowList {
+            row.cellSize = size
+        }
+    }
 }

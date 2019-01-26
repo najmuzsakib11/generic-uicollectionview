@@ -12,6 +12,7 @@ class CustomCollectionViewRow {
     let rowID:Int
     var dataModel:AnyObject?
     var cellClass:CustomCollectionViewCellProtocol.Type!
+    var cellSize:CGSize?
     
     
     private init(){

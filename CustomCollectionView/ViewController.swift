@@ -33,6 +33,7 @@ class ViewController: UIViewController {
         let row2 = CustomCollectionViewRow.init(cellClass: CollectionViewCellTest2.self)
         section2.addRow(row: row2)
 //        let row3 = CustomCollectionViewRow.init(cellClass: CollectionViewCellTest2.self, dataModel: nil)
+        collectioinView.reloadData()
     }
 }
 

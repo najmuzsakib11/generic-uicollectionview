@@ -50,7 +50,7 @@ class CustomCollectionView: UICollectionView {
     }
 }
 extension CustomCollectionView {
-    static func generateIncrementalID() -> Int{
+    class func generateIncrementalID() -> Int{
         incrementalID = incrementalID + 1;
         return incrementalID
     }
@@ -84,6 +84,24 @@ extension CustomCollectionView {
         return sectionList[index]
     }
     
+    func getSection(with sectionID:Int) -> CustomCollectionViewSection? {
+        for section in sectionList {
+            if section.sectionID == sectionID {
+                return section
+            }
+        }
+        return nil
+    }
+    
+    func getRow(with rowID:Int) -> CustomCollectionViewRow? {
+        for section in sectionList {
+            if let row = section.getRow(with:rowID) {
+                return row
+            }
+        }
+        return nil
+    }
+    
     func getRow(at indexPath:IndexPath) -> CustomCollectionViewRow {
         let section = getSection(at: indexPath.section)
         return section.getRow(at: indexPath.row)
@@ -110,6 +128,6 @@ extension CustomCollectionView:UICollectionViewDataSource {
 extension CustomCollectionView:UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let row = getRow(at: indexPath)
-        return row.cellClass.getEstimatedCellSize(parentViewSize: collectionView.frame.size)
+        return row.cellSize ?? row.cellClass.getEstimatedCellSize(parentViewSize: collectionView.frame.size)
     }
 }
