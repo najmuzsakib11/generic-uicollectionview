@@ -12,6 +12,13 @@
 		D7520D8321F54A8B007FAA42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7520D8121F54A8B007FAA42 /* Main.storyboard */; };
 		D7520D8521F54A8D007FAA42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7520D8421F54A8D007FAA42 /* Assets.xcassets */; };
 		D7520D8821F54A8D007FAA42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7520D8621F54A8D007FAA42 /* LaunchScreen.storyboard */; };
+		D7520D9021F54AF3007FAA42 /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7520D8F21F54AF3007FAA42 /* CustomCollectionView.swift */; };
+		D7520D9921F55E2B007FAA42 /* CollectionViewCellTest1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7520D9721F55E2B007FAA42 /* CollectionViewCellTest1.swift */; };
+		D7520D9A21F55E2B007FAA42 /* CollectionViewCellTest1.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7520D9821F55E2B007FAA42 /* CollectionViewCellTest1.xib */; };
+		D7520D9C21F56F4D007FAA42 /* CustomCollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7520D9B21F56F4D007FAA42 /* CustomCollectionViewSection.swift */; };
+		D7520D9E21F56FE0007FAA42 /* CustomCollectionViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7520D9D21F56FE0007FAA42 /* CustomCollectionViewRow.swift */; };
+		D7520DA221F79BBF007FAA42 /* CollectionViewCellTest2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7520DA021F79BBF007FAA42 /* CollectionViewCellTest2.swift */; };
+		D7520DA321F79BBF007FAA42 /* CollectionViewCellTest2.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7520DA121F79BBF007FAA42 /* CollectionViewCellTest2.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +29,13 @@
 		D7520D8421F54A8D007FAA42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7520D8721F54A8D007FAA42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7520D8921F54A8D007FAA42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7520D8F21F54AF3007FAA42 /* CustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
+		D7520D9721F55E2B007FAA42 /* CollectionViewCellTest1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellTest1.swift; sourceTree = "<group>"; };
+		D7520D9821F55E2B007FAA42 /* CollectionViewCellTest1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCellTest1.xib; sourceTree = "<group>"; };
+		D7520D9B21F56F4D007FAA42 /* CustomCollectionViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewSection.swift; sourceTree = "<group>"; };
+		D7520D9D21F56FE0007FAA42 /* CustomCollectionViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewRow.swift; sourceTree = "<group>"; };
+		D7520DA021F79BBF007FAA42 /* CollectionViewCellTest2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellTest2.swift; sourceTree = "<group>"; };
+		D7520DA121F79BBF007FAA42 /* CollectionViewCellTest2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCellTest2.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +70,27 @@
 			children = (
 				D7520D7D21F54A8B007FAA42 /* AppDelegate.swift */,
 				D7520D7F21F54A8B007FAA42 /* ViewController.swift */,
+				D7520D8F21F54AF3007FAA42 /* CustomCollectionView.swift */,
+				D7520D9D21F56FE0007FAA42 /* CustomCollectionViewRow.swift */,
+				D7520D9B21F56F4D007FAA42 /* CustomCollectionViewSection.swift */,
+				D7520D9F21F79B61007FAA42 /* CollectionViewCells */,
 				D7520D8121F54A8B007FAA42 /* Main.storyboard */,
 				D7520D8421F54A8D007FAA42 /* Assets.xcassets */,
 				D7520D8621F54A8D007FAA42 /* LaunchScreen.storyboard */,
 				D7520D8921F54A8D007FAA42 /* Info.plist */,
 			);
 			path = CustomCollectionView;
+			sourceTree = "<group>";
+		};
+		D7520D9F21F79B61007FAA42 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				D7520D9721F55E2B007FAA42 /* CollectionViewCellTest1.swift */,
+				D7520D9821F55E2B007FAA42 /* CollectionViewCellTest1.xib */,
+				D7520DA021F79BBF007FAA42 /* CollectionViewCellTest2.swift */,
+				D7520DA121F79BBF007FAA42 /* CollectionViewCellTest2.xib */,
+			);
+			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,6 +151,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7520DA321F79BBF007FAA42 /* CollectionViewCellTest2.xib in Resources */,
+				D7520D9A21F55E2B007FAA42 /* CollectionViewCellTest1.xib in Resources */,
 				D7520D8821F54A8D007FAA42 /* LaunchScreen.storyboard in Resources */,
 				D7520D8521F54A8D007FAA42 /* Assets.xcassets in Resources */,
 				D7520D8321F54A8B007FAA42 /* Main.storyboard in Resources */,
@@ -135,7 +166,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7520D9C21F56F4D007FAA42 /* CustomCollectionViewSection.swift in Sources */,
+				D7520D9921F55E2B007FAA42 /* CollectionViewCellTest1.swift in Sources */,
+				D7520D9021F54AF3007FAA42 /* CustomCollectionView.swift in Sources */,
 				D7520D8021F54A8B007FAA42 /* ViewController.swift in Sources */,
+				D7520DA221F79BBF007FAA42 /* CollectionViewCellTest2.swift in Sources */,
+				D7520D9E21F56FE0007FAA42 /* CustomCollectionViewRow.swift in Sources */,
 				D7520D7E21F54A8B007FAA42 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
