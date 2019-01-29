@@ -10,11 +10,14 @@ import UIKit
 
 class CollectionViewCellTest1: UICollectionViewCell, CustomCollectionViewCellProtocol {
 
+    @IBOutlet weak var abc: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+        
     }
     
     static func prepareCell(with row: CustomCollectionViewRow, cell:UICollectionViewCell) {
         cell.backgroundColor = UIColor.red
+        
     }
 }

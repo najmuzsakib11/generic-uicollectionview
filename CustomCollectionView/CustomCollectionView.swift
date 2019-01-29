@@ -36,7 +36,8 @@ class CustomCollectionView: UICollectionView {
     }
     
     func register(_ cellClass: CustomCollectionViewCellProtocol.Type) {
-        super.register(cellClass, forCellWithReuseIdentifier: cellClass.defaultReuseIdentifier)
+        super.register(UINib(nibName: cellClass.defaultReuseIdentifier, bundle: nil), forCellWithReuseIdentifier: cellClass.defaultReuseIdentifier)
+//        super.register(cellClass, forCellWithReuseIdentifier: cellClass.defaultReuseIdentifier)
     }
     
     @available (*, unavailable)
