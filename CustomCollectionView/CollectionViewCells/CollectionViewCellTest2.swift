@@ -14,11 +14,11 @@ class CollectionViewCellTest2: UICollectionViewCell, CustomCollectionViewCellPro
         super.awakeFromNib()
     }
     
-    static func prepareCell(with row: CustomCollectionViewRow, cell:UICollectionViewCell) {
-        cell.backgroundColor = UIColor.blue
+    func prepareCell(with row: CustomCollectionViewRow) {
+        backgroundColor = UIColor.red
     }
     
-    static func getEstimatedCellSize(parentViewSize:CGSize) -> CGSize {
+    static func estimatedCellSize(parentViewSize:CGSize) -> CGSize {
         return CGSize.init(width: parentViewSize.width, height: 40)
     }
 

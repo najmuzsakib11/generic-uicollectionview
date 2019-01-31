@@ -10,18 +10,19 @@ import UIKit
 
 protocol CustomCollectionViewCellProtocol: AnyObject {
     static var defaultReuseIdentifier: String { get }
-    static func prepareCell(with row: CustomCollectionViewRow, cell:UICollectionViewCell)
-    static func getEstimatedCellSize(parentViewSize:CGSize) -> CGSize
+    static func estimatedCellSize(parentViewSize:CGSize) -> CGSize
+    func prepareCell(with row: CustomCollectionViewRow)
 }
 
 extension CustomCollectionViewCellProtocol {
     static var defaultReuseIdentifier: String {
         return String(describing: Self.self)
     }
-    static func prepareCell(with row: CustomCollectionViewRow, cell:UICollectionViewCell) { }
-    static func getEstimatedCellSize(parentViewSize:CGSize) -> CGSize {
+    static func estimatedCellSize(parentViewSize:CGSize) -> CGSize {
         return CGSize.init(width: 100, height: 60)
     }
+    
+    func prepareCell(with row: CustomCollectionViewRow) { }
 }
 
 class CustomCollectionView: UICollectionView {
@@ -36,8 +37,8 @@ class CustomCollectionView: UICollectionView {
     }
     
     func register(_ cellClass: CustomCollectionViewCellProtocol.Type) {
-        super.register(UINib(nibName: cellClass.defaultReuseIdentifier, bundle: nil), forCellWithReuseIdentifier: cellClass.defaultReuseIdentifier)
-//        super.register(cellClass, forCellWithReuseIdentifier: cellClass.defaultReuseIdentifier)
+        let nib = UINib(nibName: cellClass.defaultReuseIdentifier, bundle: nil)
+        super.register(nib, forCellWithReuseIdentifier: cellClass.defaultReuseIdentifier)
     }
     
     @available (*, unavailable)
@@ -110,6 +111,7 @@ extension CustomCollectionView {
 }
 
 extension CustomCollectionView:UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return sectionList[section].getRowList().count
     }
@@ -117,7 +119,10 @@ extension CustomCollectionView:UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let row = getRow(at: indexPath)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: row.cellClass.defaultReuseIdentifier, for: indexPath)
-        row.cellClass.prepareCell(with: row, cell: cell)
+        
+        if let cell = cell as? CustomCollectionViewCellProtocol {
+            cell.prepareCell(with: row)
+        }
         return cell
     }
     
@@ -129,6 +134,6 @@ extension CustomCollectionView:UICollectionViewDataSource {
 extension CustomCollectionView:UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let row = getRow(at: indexPath)
-        return row.cellSize ?? row.cellClass.getEstimatedCellSize(parentViewSize: collectionView.frame.size)
+        return row.cellSize ?? row.cellClass.estimatedCellSize(parentViewSize: collectionView.frame.size)
     }
 }
