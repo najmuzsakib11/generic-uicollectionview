@@ -8,22 +8,27 @@
 
 import UIKit
 
-protocol CustomCollectionViewCellProtocol: AnyObject {
-    static var defaultReuseIdentifier: String { get }
-    static func estimatedCellSize(parentViewSize:CGSize) -> CGSize
+typealias CustomCollectionViewCell = UICollectionViewCell & CustomCollectionViewCellProtocol
+typealias CustomCollectionViewCellType = CustomCollectionViewCell.Type
+
+protocol CustomCollectionViewCellProtocol {
     func prepareCell(with row: CustomCollectionViewRow)
+    static func estimatedCellSize(parentViewSize:CGSize) -> CGSize
 }
 
-extension CustomCollectionViewCellProtocol {
+extension CustomCollectionViewCellProtocol where Self:UICollectionViewCell{
+    
     static var defaultReuseIdentifier: String {
         return String(describing: Self.self)
     }
+    
     static func estimatedCellSize(parentViewSize:CGSize) -> CGSize {
         return CGSize.init(width: 100, height: 60)
     }
     
     func prepareCell(with row: CustomCollectionViewRow) { }
 }
+
 
 class CustomCollectionView: UICollectionView {
     private var sectionList: [CustomCollectionViewSection]
@@ -36,21 +41,15 @@ class CustomCollectionView: UICollectionView {
         delegate = self
     }
     
-    func register(_ cellClass: CustomCollectionViewCellProtocol.Type) {
+    func register(_ cellClass: CustomCollectionViewCellType) {
         let nib = UINib(nibName: cellClass.defaultReuseIdentifier, bundle: nil)
         super.register(nib, forCellWithReuseIdentifier: cellClass.defaultReuseIdentifier)
     }
     
     @available (*, unavailable)
-    override func register(_ cellClass: AnyClass?, forCellWithReuseIdentifier identifier: String) {
-        
-    }
-    
-    @available (*, unavailable)
-    override func register(_ nib: UINib?, forCellWithReuseIdentifier identifier: String) {
-        
-    }
+    override func register(_ nib: UINib?, forCellWithReuseIdentifier identifier: String) { }
 }
+
 extension CustomCollectionView {
     class func generateIncrementalID() -> Int{
         incrementalID = incrementalID + 1;
@@ -120,7 +119,7 @@ extension CustomCollectionView:UICollectionViewDataSource {
         let row = getRow(at: indexPath)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: row.cellClass.defaultReuseIdentifier, for: indexPath)
         
-        if let cell = cell as? CustomCollectionViewCellProtocol {
+        if let cell = cell as? CustomCollectionViewCell {
             cell.prepareCell(with: row)
         }
         return cell
@@ -132,8 +131,24 @@ extension CustomCollectionView:UICollectionViewDataSource {
 }
 
 extension CustomCollectionView:UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let row = getRow(at: indexPath)
-        return row.cellSize ?? row.cellClass.estimatedCellSize(parentViewSize: collectionView.frame.size)
+        let cellWidth = row.getCellWidth(parentSize: collectionView.frame.size)
+        let cellHeight = row.getCellHeight(parentSize: collectionView.frame.size)
+        let estimatedSize = row.cellClass.estimatedCellSize(parentViewSize: collectionView.frame.size)
+        return CGSize.init(width: cellWidth ?? estimatedSize.width, height: cellHeight ?? estimatedSize.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return sectionList[section].minimumInterLineSpacing
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return sectionList[section].minimumInterItemSpacing
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionList[section].sectionInsets
     }
 }

@@ -10,12 +10,18 @@ import UIKit
 
 class CustomCollectionViewSection {
     let sectionID:Int
+    let sectionInsets:UIEdgeInsets
+    let minimumInterItemSpacing:CGFloat
+    let minimumInterLineSpacing:CGFloat
     
     private var rowList : [CustomCollectionViewRow]
     
-    init() {
+    init(sectionInsets:UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0), minimumInterLineSpacing: CGFloat = 10, minimumInterItemSpacing: CGFloat = 0) {
         sectionID = CustomCollectionView.generateIncrementalID()
         rowList = []
+        self.sectionInsets = sectionInsets
+        self.minimumInterItemSpacing = minimumInterItemSpacing
+        self.minimumInterLineSpacing = minimumInterLineSpacing
     }
     
     func addRow(row:CustomCollectionViewRow) {
@@ -40,11 +46,5 @@ class CustomCollectionViewSection {
             }
         }
         return nil
-    }
-    
-    func updateAllCellSize(with size:CGSize) {
-        for row in rowList {
-            row.cellSize = size
-        }
     }
 }
