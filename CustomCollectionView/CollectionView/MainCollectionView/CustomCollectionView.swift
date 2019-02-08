@@ -12,6 +12,7 @@ typealias CustomCollectionViewCell = UICollectionViewCell & CustomCollectionView
 typealias CustomCollectionViewCellType = CustomCollectionViewCell.Type
 
 protocol CustomCollectionViewCellProtocol {
+    
     func prepareCell(with row: CustomCollectionViewRow)
     static func estimatedCellSize(parentViewSize:CGSize) -> CGSize
 }
@@ -31,6 +32,7 @@ extension CustomCollectionViewCellProtocol where Self:UICollectionViewCell{
 
 
 class CustomCollectionView: UICollectionView {
+    
     private var sectionList: [CustomCollectionViewSection]
     private static var incrementalID = 0
     
@@ -51,13 +53,12 @@ class CustomCollectionView: UICollectionView {
 }
 
 extension CustomCollectionView {
+    
     class func generateIncrementalID() -> Int{
         incrementalID = incrementalID + 1;
         return incrementalID
     }
-}
-
-extension CustomCollectionView {
+    
     @discardableResult func addSection() -> CustomCollectionViewSection {
         let section = CustomCollectionViewSection.init()
         sectionList.append(section)
@@ -65,9 +66,7 @@ extension CustomCollectionView {
     }
     
     @discardableResult func addSection(at index:Int) -> CustomCollectionViewSection {
-        guard index <= sectionList.count else {
-            fatalError("Section index not found")
-        }
+        precondition(index <= sectionList.count, "Section index not found")
         let section = CustomCollectionViewSection.init()
         sectionList.insert(section, at: index)
         return section
@@ -79,28 +78,16 @@ extension CustomCollectionView {
     }
     
     func getSection(at index:Int) -> CustomCollectionViewSection {
-        guard index < sectionList.count else {
-            fatalError("Section not found")
-        }
+        precondition(index < sectionList.count, "Section not found.")
         return sectionList[index]
     }
     
     func getSection(with sectionID:Int) -> CustomCollectionViewSection? {
-        for section in sectionList {
-            if section.sectionID == sectionID {
-                return section
-            }
-        }
-        return nil
+        return sectionList.filter({$0.sectionID == sectionID}).first
     }
     
     func getRow(with rowID:Int) -> CustomCollectionViewRow? {
-        for section in sectionList {
-            if let row = section.getRow(with:rowID) {
-                return row
-            }
-        }
-        return nil
+        return sectionList.compactMap({$0.getRow(with: rowID)}).first
     }
     
     func getRow(at indexPath:IndexPath) -> CustomCollectionViewRow {

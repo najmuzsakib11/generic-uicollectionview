@@ -7,24 +7,10 @@
 //
 
 import UIKit
-class EdgeInsetTextField: UITextField {
-    
-    var textInsets = UIEdgeInsets.zero {
-        didSet { invalidateIntrinsicContentSize() }
-    }
-    // placeholder position
-    override func textRect(forBounds bounds:CGRect) -> CGRect {
-        return bounds.insetBy(dx: 10, dy: 10)
-    }
-    
-    // text position
-    override func editingRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.insetBy(dx: 10, dy: 10)
-    }
-}
 
 @IBDesignable
 class EdgeInsetLabel: UILabel {
+    
     var textInsets = UIEdgeInsets.zero {
         didSet { invalidateIntrinsicContentSize() }
     }
@@ -42,6 +28,7 @@ class EdgeInsetLabel: UILabel {
 }
 
 extension EdgeInsetLabel {
+    
     @IBInspectable
     var leftTextInset: CGFloat {
         set { textInsets.left = newValue }

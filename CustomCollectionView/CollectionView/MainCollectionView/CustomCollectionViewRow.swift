@@ -9,6 +9,7 @@
 import UIKit
 
 class CustomCollectionViewRow {
+    
     typealias CellSizeFunc = (CGSize)->CGFloat
 
     let rowID:Int

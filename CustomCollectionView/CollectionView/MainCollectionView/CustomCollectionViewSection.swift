@@ -9,6 +9,7 @@
 import UIKit
 
 class CustomCollectionViewSection {
+    
     let sectionID:Int
     let sectionInsets:UIEdgeInsets
     let minimumInterItemSpacing:CGFloat
@@ -29,9 +30,7 @@ class CustomCollectionViewSection {
     }
     
     func getRow(at index:Int) -> CustomCollectionViewRow {
-        guard index < rowList.count else{
-            fatalError("Row not found")
-        }
+        precondition(index < rowList.count, "Row not found")
         return rowList[index]
     }
     
@@ -40,11 +39,6 @@ class CustomCollectionViewSection {
     }
     
     func getRow(with rowID:Int) -> CustomCollectionViewRow? {
-        for row in rowList {
-            if row.rowID == rowID {
-                return row
-            }
-        }
-        return nil
+        return rowList.filter({$0.rowID == rowID}).first
     }
 }

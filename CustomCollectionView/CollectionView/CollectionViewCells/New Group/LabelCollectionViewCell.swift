@@ -21,6 +21,7 @@ class LabelCollectionViewCell: UICollectionViewCell, CustomCollectionViewCellPro
             titleLabel.text = data.title
             titleLabel.textInsets = data.edgeInsets
         }
+        titleLabel.textInsets = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 10)
     }
     
     static func estimatedCellSize(parentViewSize:CGSize) -> CGSize {

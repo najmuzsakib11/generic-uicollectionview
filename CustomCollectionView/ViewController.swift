@@ -9,7 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     @IBOutlet weak var collectioinView: CustomCollectionView!
     
     override func viewDidLoad() {
@@ -30,7 +29,7 @@ class ViewController: UIViewController {
         section1.addRow(row: row)
         
         let section2 = collectioinView.addSection()
-        let textInsets = UIEdgeInsets.init(top: 0, left: 30, bottom: 0, right: 30)
+        let textInsets = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 10)
         let dataModel = TextFieldCollectionViewCellModel.init(textInsets: textInsets, placeHolderText: "Type Your Name")
         let row2 = CustomCollectionViewRow.init(cellClass: TextFieldCollectionViewCell.self, dataModel: dataModel as AnyObject)
         section2.addRow(row: row2)

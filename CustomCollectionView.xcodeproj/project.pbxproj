@@ -26,6 +26,7 @@
 		D7520D9021F54AF3007FAA42 /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7520D8F21F54AF3007FAA42 /* CustomCollectionView.swift */; };
 		D7520D9C21F56F4D007FAA42 /* CustomCollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7520D9B21F56F4D007FAA42 /* CustomCollectionViewSection.swift */; };
 		D7520D9E21F56FE0007FAA42 /* CustomCollectionViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7520D9D21F56FE0007FAA42 /* CustomCollectionViewRow.swift */; };
+		D753E944220B483200C55DC9 /* EdgeInstTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D753E943220B483200C55DC9 /* EdgeInstTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		D7520D8F21F54AF3007FAA42 /* CustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
 		D7520D9B21F56F4D007FAA42 /* CustomCollectionViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewSection.swift; sourceTree = "<group>"; };
 		D7520D9D21F56FE0007FAA42 /* CustomCollectionViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewRow.swift; sourceTree = "<group>"; };
+		D753E943220B483200C55DC9 /* EdgeInstTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeInstTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			children = (
 				D7412DC92205F25E006C727A /* ShadowView.swift */,
 				D7412DCA2205F25E006C727A /* EdgeInsetLabel.swift */,
+				D753E943220B483200C55DC9 /* EdgeInstTextField.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				D7412DBF2205F1D8006C727A /* LabelCollectionViewCellModel.swift in Sources */,
 				D7520D9021F54AF3007FAA42 /* CustomCollectionView.swift in Sources */,
 				D7412DCB2205F25E006C727A /* ShadowView.swift in Sources */,
+				D753E944220B483200C55DC9 /* EdgeInstTextField.swift in Sources */,
 				D7520D8021F54A8B007FAA42 /* ViewController.swift in Sources */,
 				D7412DC42205F1D8006C727A /* DropDownCollectionViewCell.swift in Sources */,
 				D7412DCC2205F25E006C727A /* EdgeInsetLabel.swift in Sources */,
