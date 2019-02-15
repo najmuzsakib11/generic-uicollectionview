@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
     @IBOutlet weak var collectioinView: CustomCollectionView!
     
     override func viewDidLoad() {
@@ -27,6 +28,7 @@ class ViewController: UIViewController {
         let section1 = collectioinView.addSection()
         section1.addRow(row: row)
         section1.addRow(row: row)
+        row.setCellHeight(cellHeight: { _ in 40 })
         
         let section2 = collectioinView.addSection()
         let textInsets = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 10)
@@ -36,4 +38,3 @@ class ViewController: UIViewController {
         collectioinView.reloadData()
     }
 }
-

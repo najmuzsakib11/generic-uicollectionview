@@ -10,26 +10,24 @@ import UIKit
 
 class CustomCollectionViewRow {
     
-    typealias CellSizeFunc = (CGSize)->CGFloat
-
     let rowID:Int
     var dataModel:AnyObject?
-    var cellClass:CustomCollectionViewCellType
+    var cellClass:CustomCollectionViewCell.Type
     
-    private var cellHeight:CellSizeFunc?
-    private var cellWidth:CellSizeFunc?
+    private var cellHeight:((CGSize)->CGFloat)?
+    private var cellWidth:((CGSize)->CGFloat)?
     
-    init(cellClass:CustomCollectionViewCellType, dataModel:AnyObject? = nil) {
+    init(cellClass:CustomCollectionViewCell.Type, dataModel:AnyObject? = nil) {
         self.rowID = CustomCollectionView.generateIncrementalID()
         self.cellClass = cellClass
         self.dataModel = dataModel
     }
     
-    func setCellHeight(cellHeight:@escaping CellSizeFunc) {
+    func setCellHeight(cellHeight:@escaping (CGSize) -> CGFloat) {
         self.cellHeight = cellHeight
     }
     
-    func setCellWidth(cellWidth:@escaping CellSizeFunc) {
+    func setCellWidth(cellWidth:@escaping (CGSize) -> CGFloat) {
         self.cellWidth = cellWidth
     }
     

@@ -17,6 +17,10 @@ class CustomCollectionViewSection {
     
     private var rowList : [CustomCollectionViewRow]
     
+    var numberOfRows: Int {
+        return rowList.count
+    }
+    
     init(sectionInsets:UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0), minimumInterLineSpacing: CGFloat = 10, minimumInterItemSpacing: CGFloat = 0) {
         sectionID = CustomCollectionView.generateIncrementalID()
         rowList = []

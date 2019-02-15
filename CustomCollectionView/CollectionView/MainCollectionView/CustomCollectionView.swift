@@ -9,7 +9,6 @@
 import UIKit
 
 typealias CustomCollectionViewCell = UICollectionViewCell & CustomCollectionViewCellProtocol
-typealias CustomCollectionViewCellType = CustomCollectionViewCell.Type
 
 protocol CustomCollectionViewCellProtocol {
     
@@ -17,7 +16,7 @@ protocol CustomCollectionViewCellProtocol {
     static func estimatedCellSize(parentViewSize:CGSize) -> CGSize
 }
 
-extension CustomCollectionViewCellProtocol where Self:UICollectionViewCell{
+extension CustomCollectionViewCellProtocol where Self:UICollectionViewCell {
     
     static var defaultReuseIdentifier: String {
         return String(describing: Self.self)
@@ -43,7 +42,7 @@ class CustomCollectionView: UICollectionView {
         delegate = self
     }
     
-    func register(_ cellClass: CustomCollectionViewCellType) {
+    func register(_ cellClass: CustomCollectionViewCell.Type) {
         let nib = UINib(nibName: cellClass.defaultReuseIdentifier, bundle: nil)
         super.register(nib, forCellWithReuseIdentifier: cellClass.defaultReuseIdentifier)
     }
@@ -53,6 +52,9 @@ class CustomCollectionView: UICollectionView {
 }
 
 extension CustomCollectionView {
+    var numberOfSection : Int {
+        return sectionList.count
+    }
     
     class func generateIncrementalID() -> Int{
         incrementalID = incrementalID + 1;
