@@ -52,6 +52,7 @@ class CustomCollectionView: UICollectionView {
 }
 
 extension CustomCollectionView {
+    
     var numberOfSection : Int {
         return sectionList.count
     }

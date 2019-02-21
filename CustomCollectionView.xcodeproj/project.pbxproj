@@ -16,7 +16,7 @@
 		D7412DC52205F1D8006C727A /* DropDownCollectionViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7412DBC2205F1D8006C727A /* DropDownCollectionViewCellModel.swift */; };
 		D7412DC62205F1D8006C727A /* LabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7412DBD2205F1D8006C727A /* LabelCollectionViewCell.swift */; };
 		D7412DC72205F1D8006C727A /* LabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7412DBE2205F1D8006C727A /* LabelCollectionViewCell.xib */; };
-		D7412DCB2205F25E006C727A /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7412DC92205F25E006C727A /* ShadowView.swift */; };
+		D7412DCB2205F25E006C727A /* DropShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7412DC92205F25E006C727A /* DropShadowView.swift */; };
 		D7412DCC2205F25E006C727A /* EdgeInsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7412DCA2205F25E006C727A /* EdgeInsetLabel.swift */; };
 		D7520D7E21F54A8B007FAA42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7520D7D21F54A8B007FAA42 /* AppDelegate.swift */; };
 		D7520D8021F54A8B007FAA42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7520D7F21F54A8B007FAA42 /* ViewController.swift */; };
@@ -39,7 +39,7 @@
 		D7412DBC2205F1D8006C727A /* DropDownCollectionViewCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownCollectionViewCellModel.swift; sourceTree = "<group>"; };
 		D7412DBD2205F1D8006C727A /* LabelCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCollectionViewCell.swift; sourceTree = "<group>"; };
 		D7412DBE2205F1D8006C727A /* LabelCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelCollectionViewCell.xib; sourceTree = "<group>"; };
-		D7412DC92205F25E006C727A /* ShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		D7412DC92205F25E006C727A /* DropShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropShadowView.swift; sourceTree = "<group>"; };
 		D7412DCA2205F25E006C727A /* EdgeInsetLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdgeInsetLabel.swift; sourceTree = "<group>"; };
 		D7520D7A21F54A8B007FAA42 /* CustomCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7520D7D21F54A8B007FAA42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 		D7412DC82205F25E006C727A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				D7412DC92205F25E006C727A /* ShadowView.swift */,
+				D7412DC92205F25E006C727A /* DropShadowView.swift */,
 				D7412DCA2205F25E006C727A /* EdgeInsetLabel.swift */,
 				D753E943220B483200C55DC9 /* EdgeInstTextField.swift */,
 			);
@@ -237,7 +237,7 @@
 				D7412DC22205F1D8006C727A /* TextFieldCollectionViewCellModel.swift in Sources */,
 				D7412DBF2205F1D8006C727A /* LabelCollectionViewCellModel.swift in Sources */,
 				D7520D9021F54AF3007FAA42 /* CustomCollectionView.swift in Sources */,
-				D7412DCB2205F25E006C727A /* ShadowView.swift in Sources */,
+				D7412DCB2205F25E006C727A /* DropShadowView.swift in Sources */,
 				D753E944220B483200C55DC9 /* EdgeInstTextField.swift in Sources */,
 				D7520D8021F54A8B007FAA42 /* ViewController.swift in Sources */,
 				D7412DC42205F1D8006C727A /* DropDownCollectionViewCell.swift in Sources */,

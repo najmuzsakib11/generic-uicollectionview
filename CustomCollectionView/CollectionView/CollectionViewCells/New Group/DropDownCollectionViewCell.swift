@@ -9,7 +9,7 @@
 import UIKit
 
 class DropDownCollectionViewCell: UICollectionViewCell, CustomCollectionViewCellProtocol {
-
+    
     @IBOutlet weak var titleLabel: EdgeInsetLabel!
     
     override func awakeFromNib() {

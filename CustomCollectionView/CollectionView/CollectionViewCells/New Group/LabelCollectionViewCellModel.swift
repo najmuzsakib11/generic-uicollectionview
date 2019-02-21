@@ -9,6 +9,7 @@
 import UIKit
 
 struct LabelCollectionViewCellModel {
+    
     var title: String
     var edgeInsets: UIEdgeInsets
     

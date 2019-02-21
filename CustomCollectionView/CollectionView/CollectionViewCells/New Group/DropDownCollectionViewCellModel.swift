@@ -9,9 +9,9 @@
 import UIKit
 
 struct DropDownCollectionViewCellModel {
+    
     var title: String
     var edgeInsets: UIEdgeInsets
-    
     
     init(title:String = "", edgeInsets:UIEdgeInsets = UIEdgeInsets.zero) {
         self.title = title

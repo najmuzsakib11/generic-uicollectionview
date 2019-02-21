@@ -9,7 +9,7 @@
 import UIKit
 
 class TextFieldCollectionViewCell: UICollectionViewCell, CustomCollectionViewCellProtocol {
-
+    
     @IBOutlet weak var textField: EdgeInsetTextField!
     
     override func awakeFromNib() {

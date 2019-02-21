@@ -9,6 +9,7 @@
 import UIKit
 
 struct TextFieldCollectionViewCellModel {
+    
     var text: String
     var placeHolderText: String
     var textInsets: UIEdgeInsets

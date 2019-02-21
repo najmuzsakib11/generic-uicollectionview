@@ -8,13 +8,14 @@
 
 import UIKit
 
-class ShadowView: UIView {
-
-    @IBInspectable var shadowLayer: CAShapeLayer!
+@IBDesignable
+class DropShadowView: UIView {
+    
+    private var shadowLayer: CAShapeLayer!
+    private var fillColor = UIColor.clear
     @IBInspectable var cornerRadius: CGFloat = 0
-    @IBInspectable var fillColor = UIColor.white
-    @IBInspectable var shadowRadius:CGFloat = 3.0
-    @IBInspectable var shadowOpacity:Float = 0.1
+    @IBInspectable var shadowRadius:CGFloat = 10.0
+    @IBInspectable var shadowOpacity:Float = 0.2
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -22,17 +23,16 @@ class ShadowView: UIView {
     }
     
     func addShadowLayer() {
-        guard shadowLayer == nil else {
-            return
-        }
+        guard shadowLayer == nil else { return }
         shadowLayer = CAShapeLayer()
         shadowLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).cgPath
-        shadowLayer.fillColor = fillColor.cgColor
+        shadowLayer.fillColor = backgroundColor?.cgColor ?? fillColor.cgColor
         shadowLayer.shadowColor = UIColor.black.cgColor
         shadowLayer.shadowPath = shadowLayer.path
-        shadowLayer.shadowOffset = CGSize(width: 0, height: 1)
+        shadowLayer.shadowOffset = CGSize(width: 0, height: 0)
         shadowLayer.shadowOpacity = shadowOpacity
         shadowLayer.shadowRadius = shadowRadius
+        layer.cornerRadius = cornerRadius
         
         layer.insertSublayer(shadowLayer, at: 0)
     }
