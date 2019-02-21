@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var collectioinView: CustomCollectionView!
     
     override func viewDidLoad() {
@@ -19,21 +19,22 @@ class ViewController: UIViewController {
     }
     
     func regeisterCollectionViewCells() {
-        collectioinView.register(CollectionViewCellTest1.self)
-        collectioinView.register(CollectionViewCellTest2.self)
+        collectioinView.register(LabelCollectionViewCell.self)
+        collectioinView.register(TextFieldCollectionViewCell.self)
     }
     
     func populateCollectionView() {
-        let row = CustomCollectionViewRow.init(cellClass: CollectionViewCellTest1.self)
+        let row = CustomCollectionViewRow.init(cellClass: LabelCollectionViewCell.self)
         let section1 = collectioinView.addSection()
         section1.addRow(row: row)
         section1.addRow(row: row)
+        row.setCellHeight(cellHeight: { _ in 40 })
         
         let section2 = collectioinView.addSection()
-        let row2 = CustomCollectionViewRow.init(cellClass: CollectionViewCellTest2.self)
+        let textInsets = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 10)
+        let dataModel = TextFieldCollectionViewCellModel.init(textInsets: textInsets, placeHolderText: "Type Your Name")
+        let row2 = CustomCollectionViewRow.init(cellClass: TextFieldCollectionViewCell.self, dataModel: dataModel as AnyObject)
         section2.addRow(row: row2)
-//        let row3 = CustomCollectionViewRow.init(cellClass: CollectionViewCellTest2.self, dataModel: nil)
         collectioinView.reloadData()
     }
 }
-

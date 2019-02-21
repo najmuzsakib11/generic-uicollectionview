@@ -9,13 +9,24 @@
 import UIKit
 
 class CustomCollectionViewSection {
+    
     let sectionID:Int
+    let sectionInsets:UIEdgeInsets
+    let minimumInterItemSpacing:CGFloat
+    let minimumInterLineSpacing:CGFloat
     
     private var rowList : [CustomCollectionViewRow]
     
-    init() {
+    var numberOfRows: Int {
+        return rowList.count
+    }
+    
+    init(sectionInsets:UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0), minimumInterLineSpacing: CGFloat = 10, minimumInterItemSpacing: CGFloat = 0) {
         sectionID = CustomCollectionView.generateIncrementalID()
         rowList = []
+        self.sectionInsets = sectionInsets
+        self.minimumInterItemSpacing = minimumInterItemSpacing
+        self.minimumInterLineSpacing = minimumInterLineSpacing
     }
     
     func addRow(row:CustomCollectionViewRow) {
@@ -23,9 +34,7 @@ class CustomCollectionViewSection {
     }
     
     func getRow(at index:Int) -> CustomCollectionViewRow {
-        guard index < rowList.count else{
-            fatalError("Row not found")
-        }
+        precondition(index < rowList.count, "Row not found")
         return rowList[index]
     }
     
@@ -34,17 +43,6 @@ class CustomCollectionViewSection {
     }
     
     func getRow(with rowID:Int) -> CustomCollectionViewRow? {
-        for row in rowList {
-            if row.rowID == rowID {
-                return row
-            }
-        }
-        return nil
-    }
-    
-    func updateAllCellSize(with size:CGSize) {
-        for row in rowList {
-            row.cellSize = size
-        }
+        return rowList.filter({$0.rowID == rowID}).first
     }
 }
