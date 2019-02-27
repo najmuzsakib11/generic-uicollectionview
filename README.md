@@ -1,2 +1,2 @@
-# generic-uicollectionview
+# GenericUICollectionView
 A custom UICollectionView for all purposes
