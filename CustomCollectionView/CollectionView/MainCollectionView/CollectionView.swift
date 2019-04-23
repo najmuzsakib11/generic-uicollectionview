@@ -8,15 +8,15 @@
 
 import UIKit
 
-typealias CustomCollectionViewCell = UICollectionViewCell & CustomCollectionViewCellProtocol
+typealias CollectionViewCell = UICollectionViewCell & CollectionViewCellProtocol
 
-protocol CustomCollectionViewCellProtocol {
+protocol CollectionViewCellProtocol {
     
-    func prepareCell(with row: CustomCollectionViewRow)
-    static func estimatedCellSize(parentViewSize:CGSize) -> CGSize
+    func prepareCell(with row: CollectionViewRow)
+    static func estimatedCellSize(parentViewSize: CGSize) -> CGSize
 }
 
-extension CustomCollectionViewCellProtocol where Self:UICollectionViewCell {
+extension CollectionViewCellProtocol where Self:UICollectionViewCell {
     
     static var defaultReuseIdentifier: String {
         return String(describing: Self.self)
@@ -26,13 +26,13 @@ extension CustomCollectionViewCellProtocol where Self:UICollectionViewCell {
         return CGSize.init(width: 100, height: 60)
     }
     
-    func prepareCell(with row: CustomCollectionViewRow) { }
+    func prepareCell(with row: CollectionViewRow) { }
 }
 
 
-class CustomCollectionView: UICollectionView {
+class CollectionView: UICollectionView {
     
-    private var sectionList: [CustomCollectionViewSection]
+    private var sectionList: [CollectionViewSection]
     private static var incrementalID = 0
     
     required init?(coder aDecoder: NSCoder) {
@@ -42,7 +42,7 @@ class CustomCollectionView: UICollectionView {
         delegate = self
     }
     
-    func register(_ cellClass: CustomCollectionViewCell.Type) {
+    func register(_ cellClass: CollectionViewCell.Type) {
         let nib = UINib(nibName: cellClass.defaultReuseIdentifier, bundle: nil)
         super.register(nib, forCellWithReuseIdentifier: cellClass.defaultReuseIdentifier)
     }
@@ -51,55 +51,64 @@ class CustomCollectionView: UICollectionView {
     override func register(_ nib: UINib?, forCellWithReuseIdentifier identifier: String) { }
 }
 
-extension CustomCollectionView {
+extension CollectionView {
     
     var numberOfSection : Int {
         return sectionList.count
     }
     
     class func generateIncrementalID() -> Int{
-        incrementalID = incrementalID + 1;
+        incrementalID = incrementalID + 1
         return incrementalID
     }
     
-    @discardableResult func addSection() -> CustomCollectionViewSection {
-        let section = CustomCollectionViewSection.init()
+    @discardableResult func addSection() -> CollectionViewSection {
+        let section = CollectionViewSection.init()
         sectionList.append(section)
         return section
     }
     
-    @discardableResult func addSection(at index:Int) -> CustomCollectionViewSection {
+    @discardableResult func addSection(at index:Int) -> CollectionViewSection {
         precondition(index <= sectionList.count, "Section index not found")
-        let section = CustomCollectionViewSection.init()
+        let section = CollectionViewSection.init()
         sectionList.insert(section, at: index)
         return section
     }
     
-    func addRow(at sectionIndex:Int, row:CustomCollectionViewRow) {
+    func addRow(at sectionIndex:Int, row:CollectionViewRow) {
         let section = getSection(at: sectionIndex)
         section.addRow(row: row)
     }
     
-    func getSection(at index:Int) -> CustomCollectionViewSection {
+    func getSection(at index:Int) -> CollectionViewSection {
         precondition(index < sectionList.count, "Section not found.")
         return sectionList[index]
     }
     
-    func getSection(with sectionID:Int) -> CustomCollectionViewSection? {
+    func getSection(with sectionID:Int) -> CollectionViewSection? {
         return sectionList.filter({$0.sectionID == sectionID}).first
     }
     
-    func getRow(with rowID:Int) -> CustomCollectionViewRow? {
+    func getRow(with rowID:Int) -> CollectionViewRow? {
         return sectionList.compactMap({$0.getRow(with: rowID)}).first
     }
     
-    func getRow(at indexPath:IndexPath) -> CustomCollectionViewRow {
+    func getRow(at indexPath:IndexPath) -> CollectionViewRow {
         let section = getSection(at: indexPath.section)
         return section.getRow(at: indexPath.row)
     }
+    
+    func getIndexPath(with rowID:Int) -> IndexPath? {
+        for (sectionIndex, section) in sectionList.enumerated() {
+            for (rowIndex, row) in section.getRowList().enumerated() {
+                guard row.rowID != rowID else { return IndexPath.init(row: rowIndex, section: sectionIndex)}
+            }
+        }
+        return nil
+    }
 }
 
-extension CustomCollectionView:UICollectionViewDataSource {
+extension CollectionView:UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return sectionList[section].getRowList().count
@@ -108,8 +117,7 @@ extension CustomCollectionView:UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let row = getRow(at: indexPath)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: row.cellClass.defaultReuseIdentifier, for: indexPath)
-        
-        if let cell = cell as? CustomCollectionViewCell {
+        if let cell = cell as? CollectionViewCell {
             cell.prepareCell(with: row)
         }
         return cell
@@ -120,7 +128,7 @@ extension CustomCollectionView:UICollectionViewDataSource {
     }
 }
 
-extension CustomCollectionView:UICollectionViewDelegateFlowLayout {
+extension CollectionView:UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let row = getRow(at: indexPath)

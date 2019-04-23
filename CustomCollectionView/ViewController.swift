@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var collectioinView: CustomCollectionView!
+    @IBOutlet weak var collectioinView: CollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     }
     
     func populateCollectionView() {
-        let row = CustomCollectionViewRow.init(cellClass: LabelCollectionViewCell.self)
+        let row = CollectionViewRow.init(cellClass: LabelCollectionViewCell.self)
         let section1 = collectioinView.addSection()
         section1.addRow(row: row)
         section1.addRow(row: row)
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         let section2 = collectioinView.addSection()
         let textInsets = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 10)
         let dataModel = TextFieldCollectionViewCellModel.init(textInsets: textInsets, placeHolderText: "Type Your Name")
-        let row2 = CustomCollectionViewRow.init(cellClass: TextFieldCollectionViewCell.self, dataModel: dataModel as AnyObject)
+        let row2 = CollectionViewRow.init(cellClass: TextFieldCollectionViewCell.self, dataModel: dataModel as AnyObject)
         section2.addRow(row: row2)
         collectioinView.reloadData()
     }

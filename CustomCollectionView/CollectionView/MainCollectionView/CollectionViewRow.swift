@@ -8,17 +8,18 @@
 
 import UIKit
 
-class CustomCollectionViewRow {
+class CollectionViewRow {
     
     let rowID:Int
+    
     var dataModel:AnyObject?
-    var cellClass:CustomCollectionViewCell.Type
+    var cellClass:CollectionViewCell.Type
     
     private var cellHeight:((CGSize)->CGFloat)?
     private var cellWidth:((CGSize)->CGFloat)?
     
-    init(cellClass:CustomCollectionViewCell.Type, dataModel:AnyObject? = nil) {
-        self.rowID = CustomCollectionView.generateIncrementalID()
+    init(cellClass:CollectionViewCell.Type, dataModel:AnyObject? = nil) {
+        self.rowID = CollectionView.generateIncrementalID()
         self.cellClass = cellClass
         self.dataModel = dataModel
     }
@@ -37,5 +38,11 @@ class CustomCollectionViewRow {
     
     func getCellWidth(parentSize:CGSize) -> CGFloat? {
         return cellWidth?(parentSize)
+    }
+}
+
+extension CollectionViewRow:Equatable {
+    static func == (lhs: CollectionViewRow, rhs: CollectionViewRow) -> Bool {
+        return lhs.rowID == rhs.rowID
     }
 }

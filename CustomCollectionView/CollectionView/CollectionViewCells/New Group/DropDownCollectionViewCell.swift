@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DropDownCollectionViewCell: UICollectionViewCell, CustomCollectionViewCellProtocol {
+class DropDownCollectionViewCell: UICollectionViewCell, CollectionViewCellProtocol {
     
     @IBOutlet weak var titleLabel: EdgeInsetLabel!
     
@@ -16,7 +16,7 @@ class DropDownCollectionViewCell: UICollectionViewCell, CustomCollectionViewCell
         super.awakeFromNib()
     }
     
-    func prepareCell(with row: CustomCollectionViewRow) {
+    func prepareCell(with row: CollectionViewRow) {
         if let data = row.dataModel as? DropDownCollectionViewCellModel {
             titleLabel.textInsets = data.edgeInsets
             titleLabel.text = data.title

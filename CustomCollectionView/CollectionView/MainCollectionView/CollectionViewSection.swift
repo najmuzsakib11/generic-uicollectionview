@@ -8,41 +8,47 @@
 
 import UIKit
 
-class CustomCollectionViewSection {
+class CollectionViewSection {
     
     let sectionID:Int
     let sectionInsets:UIEdgeInsets
     let minimumInterItemSpacing:CGFloat
     let minimumInterLineSpacing:CGFloat
     
-    private var rowList : [CustomCollectionViewRow]
+    private var rowList : [CollectionViewRow]
     
     var numberOfRows: Int {
         return rowList.count
     }
     
     init(sectionInsets:UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0), minimumInterLineSpacing: CGFloat = 10, minimumInterItemSpacing: CGFloat = 0) {
-        sectionID = CustomCollectionView.generateIncrementalID()
+        sectionID = CollectionView.generateIncrementalID()
         rowList = []
         self.sectionInsets = sectionInsets
         self.minimumInterItemSpacing = minimumInterItemSpacing
         self.minimumInterLineSpacing = minimumInterLineSpacing
     }
     
-    func addRow(row:CustomCollectionViewRow) {
+    func addRow(row:CollectionViewRow) {
         rowList.append(row)
     }
     
-    func getRow(at index:Int) -> CustomCollectionViewRow {
+    func getRow(at index:Int) -> CollectionViewRow {
         precondition(index < rowList.count, "Row not found")
         return rowList[index]
     }
     
-    func getRowList() -> [CustomCollectionViewRow] {
+    func getRowList() -> [CollectionViewRow] {
         return rowList
     }
     
-    func getRow(with rowID:Int) -> CustomCollectionViewRow? {
+    func getRow(with rowID:Int) -> CollectionViewRow? {
         return rowList.filter({$0.rowID == rowID}).first
+    }
+}
+
+extension CollectionViewSection:Equatable {
+    static func == (lhs: CollectionViewSection, rhs: CollectionViewSection) -> Bool {
+        return lhs.sectionID == rhs.sectionID
     }
 }

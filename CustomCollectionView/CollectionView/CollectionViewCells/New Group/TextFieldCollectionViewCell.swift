@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TextFieldCollectionViewCell: UICollectionViewCell, CustomCollectionViewCellProtocol {
+class TextFieldCollectionViewCell: UICollectionViewCell, CollectionViewCellProtocol {
     
     @IBOutlet weak var textField: EdgeInsetTextField!
     
@@ -16,7 +16,7 @@ class TextFieldCollectionViewCell: UICollectionViewCell, CustomCollectionViewCel
         super.awakeFromNib()
     }
     
-    func prepareCell(with row: CustomCollectionViewRow) {
+    func prepareCell(with row: CollectionViewRow) {
         if let dataModel = row.dataModel as? TextFieldCollectionViewCellModel{
             textField.textInsets = dataModel.textInsets
             textField.placeholder = dataModel.placeHolderText

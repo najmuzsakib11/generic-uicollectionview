@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LabelCollectionViewCell: UICollectionViewCell, CustomCollectionViewCellProtocol {
+class LabelCollectionViewCell: UICollectionViewCell, CollectionViewCellProtocol {
     
     @IBOutlet weak var titleLabel: EdgeInsetLabel!
     
@@ -16,7 +16,7 @@ class LabelCollectionViewCell: UICollectionViewCell, CustomCollectionViewCellPro
         super.awakeFromNib()
     }
     
-    func prepareCell(with row: CustomCollectionViewRow) {
+    func prepareCell(with row: CollectionViewRow) {
         if let data = row.dataModel as? LabelCollectionViewCellModel {
             titleLabel.text = data.title
             titleLabel.textInsets = data.edgeInsets

@@ -23,9 +23,9 @@
 		D7520D8321F54A8B007FAA42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7520D8121F54A8B007FAA42 /* Main.storyboard */; };
 		D7520D8521F54A8D007FAA42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7520D8421F54A8D007FAA42 /* Assets.xcassets */; };
 		D7520D8821F54A8D007FAA42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7520D8621F54A8D007FAA42 /* LaunchScreen.storyboard */; };
-		D7520D9021F54AF3007FAA42 /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7520D8F21F54AF3007FAA42 /* CustomCollectionView.swift */; };
-		D7520D9C21F56F4D007FAA42 /* CustomCollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7520D9B21F56F4D007FAA42 /* CustomCollectionViewSection.swift */; };
-		D7520D9E21F56FE0007FAA42 /* CustomCollectionViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7520D9D21F56FE0007FAA42 /* CustomCollectionViewRow.swift */; };
+		D7520D9021F54AF3007FAA42 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7520D8F21F54AF3007FAA42 /* CollectionView.swift */; };
+		D7520D9C21F56F4D007FAA42 /* CollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7520D9B21F56F4D007FAA42 /* CollectionViewSection.swift */; };
+		D7520D9E21F56FE0007FAA42 /* CollectionViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7520D9D21F56FE0007FAA42 /* CollectionViewRow.swift */; };
 		D753E944220B483200C55DC9 /* EdgeInstTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D753E943220B483200C55DC9 /* EdgeInstTextField.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,9 +48,9 @@
 		D7520D8421F54A8D007FAA42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7520D8721F54A8D007FAA42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7520D8921F54A8D007FAA42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D7520D8F21F54AF3007FAA42 /* CustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
-		D7520D9B21F56F4D007FAA42 /* CustomCollectionViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewSection.swift; sourceTree = "<group>"; };
-		D7520D9D21F56FE0007FAA42 /* CustomCollectionViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewRow.swift; sourceTree = "<group>"; };
+		D7520D8F21F54AF3007FAA42 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		D7520D9B21F56F4D007FAA42 /* CollectionViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewSection.swift; sourceTree = "<group>"; };
+		D7520D9D21F56FE0007FAA42 /* CollectionViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewRow.swift; sourceTree = "<group>"; };
 		D753E943220B483200C55DC9 /* EdgeInstTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeInstTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,9 +105,9 @@
 		D7412DCD2205F324006C727A /* MainCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				D7520D8F21F54AF3007FAA42 /* CustomCollectionView.swift */,
-				D7520D9D21F56FE0007FAA42 /* CustomCollectionViewRow.swift */,
-				D7520D9B21F56F4D007FAA42 /* CustomCollectionViewSection.swift */,
+				D7520D8F21F54AF3007FAA42 /* CollectionView.swift */,
+				D7520D9D21F56FE0007FAA42 /* CollectionViewRow.swift */,
+				D7520D9B21F56F4D007FAA42 /* CollectionViewSection.swift */,
 			);
 			path = MainCollectionView;
 			sourceTree = "<group>";
@@ -233,17 +233,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7412DC12205F1D8006C727A /* TextFieldCollectionViewCell.swift in Sources */,
-				D7520D9C21F56F4D007FAA42 /* CustomCollectionViewSection.swift in Sources */,
+				D7520D9C21F56F4D007FAA42 /* CollectionViewSection.swift in Sources */,
 				D7412DC22205F1D8006C727A /* TextFieldCollectionViewCellModel.swift in Sources */,
 				D7412DBF2205F1D8006C727A /* LabelCollectionViewCellModel.swift in Sources */,
-				D7520D9021F54AF3007FAA42 /* CustomCollectionView.swift in Sources */,
+				D7520D9021F54AF3007FAA42 /* CollectionView.swift in Sources */,
 				D7412DCB2205F25E006C727A /* DropShadowView.swift in Sources */,
 				D753E944220B483200C55DC9 /* EdgeInstTextField.swift in Sources */,
 				D7520D8021F54A8B007FAA42 /* ViewController.swift in Sources */,
 				D7412DC42205F1D8006C727A /* DropDownCollectionViewCell.swift in Sources */,
 				D7412DCC2205F25E006C727A /* EdgeInsetLabel.swift in Sources */,
 				D7412DC52205F1D8006C727A /* DropDownCollectionViewCellModel.swift in Sources */,
-				D7520D9E21F56FE0007FAA42 /* CustomCollectionViewRow.swift in Sources */,
+				D7520D9E21F56FE0007FAA42 /* CollectionViewRow.swift in Sources */,
 				D7412DC62205F1D8006C727A /* LabelCollectionViewCell.swift in Sources */,
 				D7520D7E21F54A8B007FAA42 /* AppDelegate.swift in Sources */,
 			);
