@@ -8,36 +8,22 @@
 
 import UIKit
 
-typealias CollectionViewCell = UICollectionViewCell & CollectionViewCellProtocol
-
-protocol CollectionViewCellProtocol {
-    
-    func prepareCell(with row: CollectionViewRow)
-    static func estimatedCellSize(parentViewSize: CGSize) -> CGSize
-}
-
-extension CollectionViewCellProtocol where Self:UICollectionViewCell {
-    
-    static var defaultReuseIdentifier: String {
-        return String(describing: Self.self)
-    }
-    
-    static func estimatedCellSize(parentViewSize:CGSize) -> CGSize {
-        return CGSize.init(width: 100, height: 60)
-    }
-    
-    func prepareCell(with row: CollectionViewRow) { }
-}
-
-
 class CollectionView: UICollectionView {
     
-    private var sectionList: [CollectionViewSection]
+    private var sectionList:[CollectionViewSection] = []
     private static var incrementalID = 0
     
     required init?(coder aDecoder: NSCoder) {
-        sectionList = []
         super.init(coder: aDecoder)
+        configureAtInit()
+    }
+    
+    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
+        super.init(frame: frame, collectionViewLayout: layout)
+        configureAtInit()
+    }
+    
+    func configureAtInit() {
         dataSource = self
         delegate = self
     }

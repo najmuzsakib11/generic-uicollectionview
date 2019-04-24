@@ -27,6 +27,7 @@
 		D7520D9C21F56F4D007FAA42 /* CollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7520D9B21F56F4D007FAA42 /* CollectionViewSection.swift */; };
 		D7520D9E21F56FE0007FAA42 /* CollectionViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7520D9D21F56FE0007FAA42 /* CollectionViewRow.swift */; };
 		D753E944220B483200C55DC9 /* EdgeInstTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D753E943220B483200C55DC9 /* EdgeInstTextField.swift */; };
+		D77F98FB226F8E3800F914F1 /* CollectionViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F98FA226F8E3800F914F1 /* CollectionViewCellProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		D7520D9B21F56F4D007FAA42 /* CollectionViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewSection.swift; sourceTree = "<group>"; };
 		D7520D9D21F56FE0007FAA42 /* CollectionViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewRow.swift; sourceTree = "<group>"; };
 		D753E943220B483200C55DC9 /* EdgeInstTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeInstTextField.swift; sourceTree = "<group>"; };
+		D77F98FA226F8E3800F914F1 /* CollectionViewCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,14 +67,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D7412DB22205E26E006C727A /* CollectionView */ = {
+		D7412DB22205E26E006C727A /* SwiftClasses */ = {
 			isa = PBXGroup;
 			children = (
-				D7412DCD2205F324006C727A /* MainCollectionView */,
+				D7412DCD2205F324006C727A /* CollectionView */,
 				D7412DC82205F25E006C727A /* Utilities */,
 				D7520D9F21F79B61007FAA42 /* CollectionViewCells */,
 			);
-			path = CollectionView;
+			path = SwiftClasses;
 			sourceTree = "<group>";
 		};
 		D7412DB52205F1BD006C727A /* CommonCell */ = {
@@ -102,14 +104,15 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		D7412DCD2205F324006C727A /* MainCollectionView */ = {
+		D7412DCD2205F324006C727A /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
 				D7520D8F21F54AF3007FAA42 /* CollectionView.swift */,
 				D7520D9D21F56FE0007FAA42 /* CollectionViewRow.swift */,
 				D7520D9B21F56F4D007FAA42 /* CollectionViewSection.swift */,
+				D77F98FA226F8E3800F914F1 /* CollectionViewCellProtocol.swift */,
 			);
-			path = MainCollectionView;
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		D7412DCE2205F372006C727A /* Other */ = {
@@ -138,7 +141,7 @@
 		D7520D7C21F54A8B007FAA42 /* CustomCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				D7412DB22205E26E006C727A /* CollectionView */,
+				D7412DB22205E26E006C727A /* SwiftClasses */,
 				D7520D7D21F54A8B007FAA42 /* AppDelegate.swift */,
 				D7520D7F21F54A8B007FAA42 /* ViewController.swift */,
 				D7520D8121F54A8B007FAA42 /* Main.storyboard */,
@@ -190,6 +193,7 @@
 				TargetAttributes = {
 					D7520D7921F54A8B007FAA42 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -234,6 +238,7 @@
 			files = (
 				D7412DC12205F1D8006C727A /* TextFieldCollectionViewCell.swift in Sources */,
 				D7520D9C21F56F4D007FAA42 /* CollectionViewSection.swift in Sources */,
+				D77F98FB226F8E3800F914F1 /* CollectionViewCellProtocol.swift in Sources */,
 				D7412DC22205F1D8006C727A /* TextFieldCollectionViewCellModel.swift in Sources */,
 				D7412DBF2205F1D8006C727A /* LabelCollectionViewCellModel.swift in Sources */,
 				D7520D9021F54AF3007FAA42 /* CollectionView.swift in Sources */,
@@ -399,7 +404,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sakib.CustomCollectionView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -416,7 +421,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sakib.CustomCollectionView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
